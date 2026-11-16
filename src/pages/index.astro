@@ -1,0 +1,357 @@
+---
+import '@fontsource-variable/newsreader';
+import '@fontsource-variable/newsreader/wght-italic.css';
+import '@fontsource-variable/public-sans';
+import '../styles/global.css';
+
+const whatsapp = 'https://wa.me/5513978187272?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JW%20e%20quero%20conversar%20sobre%20a%20minha%20escola.';
+const email = 'datajwconsulting@gmail.com';
+const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><path d="M48 32 L58 72 L68 46 L78 72 L88 32" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 96 H90" stroke="#9CC3B4" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="96" r="5" fill="#9CC3B4"/><circle cx="68" cy="96" r="5" fill="#9CC3B4"/><circle cx="100" cy="96" r="8" fill="#E9A23B"/>`;
+---
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>JW Data Consulting para escolas</title>
+  <meta name="description" content="Atendimento por WhatsApp, financeiro, RH e DRE da escola particular organizados e automatizados, sobre o sistema de gestão que a escola já usa. Para escolas de 100 a 1.000 alunos.">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="theme-color" content="#F1F5F3">
+  <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.svg`.replace("//", "/")} type="image/svg+xml">
+</head>
+<body>
+  <header class="topo" id="topo">
+    <div class="container">
+      <a class="marca" href="#inicio" aria-label="JW Data Consulting, início">
+        <svg viewBox="0 0 120 120" aria-hidden="true" style="color:#123F3C" set:html={icone} />
+        <span>JW Data Consulting</span>
+      </a>
+      <nav class="menu" aria-label="Principal">
+        <a href="#um-dia">Como funciona</a>
+        <a href="#implantacao">Implantação</a>
+        <a href="#quem-faz">Quem faz</a>
+        <a class="botao principal" href="#contato">Agendar diagnóstico</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="abertura" aria-labelledby="titulo">
+      <div class="container">
+        <h1 id="titulo" class="titulo-abertura">Da primeira conversa ao fechamento do mês.</h1>
+        <p class="texto">Organizamos o atendimento, o financeiro, o RH e o resultado de escolas particulares, sobre o sistema de gestão que a escola já usa. A equipe para de correr atrás da rotina, e a direção passa a ver a escola inteira.</p>
+        <div class="acoes">
+          <a class="botao principal" href="#contato">Agendar um diagnóstico</a>
+          <a class="botao secundario" href="#um-dia">Ver um dia na escola</a>
+        </div>
+        <div class="linha-h trilho-abertura" aria-hidden="true">
+          <div class="base"></div><div class="feito"></div>
+          <ol>
+            <li><span class="no"></span><span>7h</span></li>
+            <li><span class="no"></span><span>9h20</span></li>
+            <li><span class="no"></span><span>14h</span></li>
+            <li><span class="no"></span><span>16h30</span></li>
+            <li class="fim"><span class="no"></span><span>Fim do mês</span></li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section class="dia" id="um-dia" aria-labelledby="dia-titulo">
+      <div class="container">
+        <div class="dia-intro">
+          <h2 id="dia-titulo">Um dia na escola, com a JW trabalhando junto.</h2>
+          <p class="texto">Hoje, a rotina depende da memória de poucas pessoas. Acompanhe o mesmo dia com o atendimento, o financeiro e o resultado organizados.</p>
+        </div>
+
+        <div class="cenas">
+          <div class="espinha" aria-hidden="true"><div class="progresso"></div></div>
+
+          <article class="cena">
+            <span class="no" aria-hidden="true"></span>
+            <div class="lado-texto">
+              <p class="hora">7h, antes do portão abrir</p>
+              <h3>A direção já sabe como a escola está.</h3>
+              <p class="texto">Um painel com captação, caixa e resultado, atualizado sozinho durante a madrugada a partir do sistema de gestão. Cada gráfico diz em uma frase como ler.</p>
+            </div>
+            <div class="lado-tela">
+              <div class="janela">
+                <div class="barra"><i></i><i></i><i></i><span>painel da escola</span></div>
+                <div class="tela">
+                  <div class="numeros">
+                    <div><small>Matrículas 2027</small><b data-contar="312">312</b><small>de 360 vagas</small></div>
+                    <div><small>Recebido no mês</small><b data-contar="87" data-sufixo="%">87%</b><small>do previsto até hoje</small></div>
+                    <div class="alerta"><small>Atraso acima de 30 dias</small><b data-contar="9">9</b><small>famílias para conversar</small></div>
+                  </div>
+                  <svg viewBox="0 0 520 120" role="img" aria-label="Gráfico ilustrativo: matrículas por semana, em alta">
+                    <path class="area" d="M0 100 L52 96 L104 90 L156 84 L208 70 L260 66 L312 52 L364 44 L416 30 L468 24 L520 14 V120 H0 Z" fill="#9CC3B4" opacity=".35"/>
+                    <path class="traco" d="M0 100 L52 96 L104 90 L156 84 L208 70 L260 66 L312 52 L364 44 L416 30 L468 24 L520 14" fill="none" stroke="#123F3C" stroke-width="3"/>
+                    <circle cx="514" cy="16" r="6" fill="#E9A23B"/>
+                  </svg>
+                  <p class="legenda" style="margin-top:6px">Matrículas por semana. A rematrícula está 6 pontos acima do ano passado.</p>
+                </div>
+              </div>
+              <p class="legenda">Tela ilustrativa, com dados fictícios.</p>
+            </div>
+          </article>
+
+          <article class="cena">
+            <span class="no" aria-hidden="true"></span>
+            <div class="lado-texto">
+              <p class="hora">9h20, uma família chama no WhatsApp</p>
+              <h3>Ninguém fica sem resposta, e a visita já sai marcada.</h3>
+              <p class="texto">O número da escola continua o mesmo, agora numa caixa de atendimento que a equipe divide, com a API oficial da Meta. Na véspera da visita, a família recebe um lembrete; depois dela, o material da série certa.</p>
+            </div>
+            <div class="lado-tela">
+              <div class="celular" role="img" aria-label="Conversa ilustrativa entre uma família e a escola pelo WhatsApp">
+                <div class="cab"><i></i>Escola</div>
+                <div class="msgs">
+                  <div class="balao familia">Oi! Vocês têm vaga para o Grupo 4 em 2027?<small>9:20</small></div>
+                  <div class="balao escola">Olá! Temos sim. Qual o seu nome e o da criança? Assim já separo as informações da turma.<small>9:21</small></div>
+                  <div class="balao familia">Sou a Carla, mãe do Theo.<small>9:23</small></div>
+                  <div class="balao escola">Obrigada, Carla! Aqui estão os horários para conhecer a escola. É só escolher o melhor para vocês.<small>9:24</small></div>
+                </div>
+              </div>
+              <p class="legenda" style="text-align:center">Conversa ilustrativa. Nomes fictícios.</p>
+            </div>
+          </article>
+
+          <article class="cena">
+            <span class="no" aria-hidden="true"></span>
+            <div class="lado-texto">
+              <p class="hora">14h, o financeiro abre a fila do dia</p>
+              <h3>Só o que precisa de alguém. O resto já foi feito.</h3>
+              <p class="texto">Lembretes de vencimento e avisos de atraso saem sozinhos, com o tom que a gestão aprovou. O analista começa a tarde por uma lista curta, e não pela caça ao que falta.</p>
+            </div>
+            <div class="lado-tela">
+              <div class="janela">
+                <div class="barra"><i></i><i></i><i></i><span>fila do dia do financeiro</span></div>
+                <div class="tela">
+                  <p style="font-family:var(--serif); font-size:1.35rem; color:var(--pinho); margin-bottom:6px">4 itens para hoje</p>
+                  <ul class="itens">
+                    <li><b>Conversar com 3 famílias</b> com mais de 15 dias de atraso</li>
+                    <li><b>2 despesas sem categoria</b> lançadas ontem</li>
+                    <li><b>1 crédito do extrato</b> ainda sem par no sistema</li>
+                    <li><b>Conta de energia</b> vence amanhã e ainda não foi paga</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="legenda">Tela ilustrativa, com dados fictícios.</p>
+            </div>
+          </article>
+
+          <article class="cena">
+            <span class="no" aria-hidden="true"></span>
+            <div class="lado-texto">
+              <p class="hora">16h30, chega um currículo</p>
+              <h3>O RH já sabe se ele combina com a vaga.</h3>
+              <p class="texto">O candidato envia pela página Trabalhe conosco, dentro do Google da própria escola. A leitura com IA tira nome e contatos antes de analisar, e o resumo chega ao RH às 8h do dia seguinte. Quem decide é sempre uma pessoa.</p>
+            </div>
+            <div class="lado-tela">
+              <div class="janela">
+                <div class="barra"><i></i><i></i><i></i><span>candidaturas para auxiliar de classe</span></div>
+                <div class="tela">
+                  <div class="nota-cv"><b><span data-contar="8">8</span></b><span>de 10 em aderência à vaga<br>candidatura 20271116-1630</span></div>
+                  <ul class="itens">
+                    <li><b>Atende:</b> ensino médio completo e experiência com crianças de 1 a 5 anos</li>
+                    <li><b>Desejável:</b> cursa Pedagogia; ainda sem curso de primeiros socorros</li>
+                    <li><b>Sugestão:</b> chamar para entrevista</li>
+                  </ul>
+                </div>
+              </div>
+              <p class="legenda">Tela ilustrativa, com dados fictícios.</p>
+            </div>
+          </article>
+
+          <article class="cena">
+            <span class="no" aria-hidden="true"></span>
+            <div class="lado-texto">
+              <p class="hora">Último dia útil do mês</p>
+              <h3>A DRE já está pronta, e confere com o banco.</h3>
+              <p class="texto">Receitas, despesas e resultado por competência, montados a partir do plano de contas da escola e conferidos com o sistema de gestão e o extrato. A conciliação mostra só as exceções. A direção revisa e aprova.</p>
+            </div>
+            <div class="lado-tela">
+              <div class="janela">
+                <div class="barra"><i></i><i></i><i></i><span>resultado de novembro</span></div>
+                <div class="tela">
+                  <table class="dre">
+                    <tbody>
+                      <tr><td>Receita líquida</td><td class="valor">R$ 412.300</td></tr>
+                      <tr><td>Pessoal e encargos</td><td>R$ 228.900</td></tr>
+                      <tr><td>Despesas da operação</td><td>R$ 96.400</td></tr>
+                      <tr class="total"><td>Resultado do mês</td><td class="valor">R$ 87.000</td></tr>
+                    </tbody>
+                  </table>
+                  <p class="conferido">Conferido com o extrato e com o sistema de gestão</p>
+                </div>
+              </div>
+              <p class="legenda">Tela ilustrativa, com dados fictícios.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="mudanca" aria-labelledby="mudanca-titulo">
+      <div class="container">
+        <h2 id="mudanca-titulo">O que muda na rotina da equipe.</h2>
+        <div class="colunas">
+          <div class="antes">
+            <h3>Hoje</h3>
+            <ul class="lista">
+              <li>O WhatsApp fica no celular de uma pessoa</li>
+              <li>A baixa do banco é feita à mão</li>
+              <li>A cobrança depende de alguém lembrar</li>
+              <li>A DRE sai em planilha, semanas depois</li>
+              <li>Currículos se perdem na conversa</li>
+            </ul>
+          </div>
+          <div class="depois">
+            <h3>Com a JW</h3>
+            <ul class="lista">
+              <li>A equipe divide uma caixa de atendimento</li>
+              <li>O extrato chega e o sistema sugere os pares</li>
+              <li>Lembretes e avisos saem no dia certo</li>
+              <li>A DRE fica pronta no último dia útil</li>
+              <li>Cada currículo chega com a nota da vaga</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="implantacao" id="implantacao" aria-labelledby="impl-titulo">
+      <div class="container">
+        <h2 id="impl-titulo">Implantamos uma parte por vez, começando pela que mais pesa.</h2>
+        <div class="etapas">
+          <div class="linha-h linha-etapas" aria-hidden="true">
+            <div class="base"></div><div class="feito"></div>
+            <ol><li><span class="no"></span></li><li><span class="no"></span></li><li><span class="no"></span></li><li class="fim"><span class="no"></span></li></ol>
+          </div>
+          <div class="etapa"><p class="quando">primeiro</p><h3>Atendimento</h3><p class="texto">WhatsApp oficial, caixa da equipe, respostas prontas e funil de matrícula. Cerca de 3 semanas, mais 1 de acompanhamento.</p></div>
+          <div class="etapa"><p class="quando">depois</p><h3>Financeiro</h3><p class="texto">Régua de cobrança, contas a pagar e a fila do dia do analista.</p></div>
+          <div class="etapa"><p class="quando">em seguida</p><h3>Resultado</h3><p class="texto">DRE gerencial, conciliação bancária e custo por série.</p></div>
+          <div class="etapa"><p class="quando">por fim</p><h3>RH e painel completo</h3><p class="texto">Triagem de currículos e a visão da escola inteira num só lugar.</p></div>
+        </div>
+        <p class="texto" style="margin-top:48px">Toda etapa começa ouvindo a equipe e termina com treinamento e um passo a passo de telas e cliques. Hoje integramos com o iScholar; outros sistemas de gestão sob consulta.</p>
+      </div>
+    </section>
+
+    <section class="principios" aria-labelledby="princ-titulo">
+      <div class="container">
+        <h2 id="princ-titulo">Os dados e as contas continuam da escola.</h2>
+        <ul class="lista">
+          <li><b>WhatsApp, Google e nuvem ficam no nome da escola.</b> A JW acessa com autorização e sai quando a escola quiser.</li>
+          <li><b>A JW atua como operadora de dados,</b> com termo assinado e só o acesso necessário, como pede a LGPD.</li>
+          <li><b>No sistema de gestão, só leitura.</b> Nada muda sem a equipe saber e aprovar.</li>
+          <li><b>Tudo fica documentado.</b> A operação não depende de uma única pessoa.</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="quem" id="quem-faz" aria-labelledby="quem-titulo">
+      <div class="container">
+        <div>
+          <h2 id="quem-titulo">Experiência de grandes operações, na medida da escola.</h2>
+          <p class="texto">A JW foi fundada por Jaime Witer, com cerca de 10 anos entre negócios, tecnologia e dados. O método que ele aplicou em operações de grande porte hoje roda numa escola piloto, do atendimento ao financeiro.</p>
+          <p class="trajetoria">Trajetória em iFood, Mercado Livre, Via Varejo, Natura, O Boticário, Bradesco, Santander, Banco do Brasil, Serasa Experian, Unimed Nacional e Mycon Consórcios.</p>
+        </div>
+        <ul class="lista provas">
+          <li><b>−86%</b><span>de auditorias médicas manuais com uma esteira que pontua cada caso, na Unimed Nacional</span></li>
+          <li><b>−60%</b><span>de custo já no primeiro mês num ambiente de dados para mais de 850 usuários, na Natura</span></li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="fechamento" id="contato" aria-labelledby="contato-titulo">
+      <div class="container">
+        <h2 id="contato-titulo">Duas semanas para mostrar onde está o tempo da sua equipe.</h2>
+        <p class="texto">No diagnóstico, conversamos com a direção e a equipe, lemos o sistema de gestão e entregamos uma proposta priorizada por impacto. Para escolas particulares de 100 a 1.000 alunos.</p>
+        <div class="acoes">
+          <a class="botao principal" href={whatsapp} rel="noopener">Conversar pelo WhatsApp</a>
+          <a class="botao secundario" href={`mailto:${email}?subject=Diagn%C3%B3stico%20para%20escola`}>Enviar um e-mail</a>
+        </div>
+        <p class="contato-texto">{email}<br>Praia Grande/SP, com atendimento em todo o Brasil</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="rodape">
+    <div class="container">
+      <span>© 2026 JW Data Consulting, CNPJ 69.783.687/0001-85</span>
+      <span><a href="https://jwdataconsulting.com.br/privacidade.html">Privacidade</a>&nbsp;&nbsp;<a href="https://jwdataconsulting.com.br/termos.html">Termos</a></span>
+    </div>
+  </footer>
+
+  <script>
+    import { gsap } from 'gsap';
+    import { ScrollTrigger } from 'gsap/ScrollTrigger';
+    import { SplitText } from 'gsap/SplitText';
+
+    const topo = document.getElementById('topo');
+    const marcar = () => topo?.classList.toggle('rolou', window.scrollY > 8);
+    marcar();
+    window.addEventListener('scroll', marcar, { passive: true });
+
+    const reduzir = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Nó ativo na linha do dia (funciona também sem animação).
+    gsap.registerPlugin(ScrollTrigger, SplitText);
+    document.querySelectorAll<HTMLElement>('.cena').forEach((cena) => {
+      ScrollTrigger.create({
+        trigger: cena,
+        start: 'top 60%',
+        end: 'bottom 40%',
+        onToggle: (s) => cena.classList.toggle('ativa', s.isActive),
+      });
+    });
+
+    if (!reduzir) {
+      // Abertura: o título surge linha por linha e a régua do dia é desenhada uma vez.
+      document.fonts.ready.then(() => {
+        const split = SplitText.create('.titulo-abertura', { type: 'lines', mask: 'lines' });
+        const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+        tl.from(split.lines, { yPercent: 105, duration: 0.9, stagger: 0.09 })
+          .from('.trilho-abertura .feito', { scaleX: 0, duration: 1.4, ease: 'power2.inOut' }, '-=0.3')
+          .from('.trilho-abertura .no', { scale: 0, duration: 0.35, stagger: 0.22 }, '<0.1');
+      });
+
+      // A espinha do dia acompanha a rolagem.
+      const progresso = document.querySelector<HTMLElement>('.espinha .progresso');
+      if (progresso) {
+        gsap.set(progresso, { scaleY: 0 });
+        gsap.to(progresso, {
+          scaleY: 1, ease: 'none',
+          scrollTrigger: { trigger: '.cenas', start: 'top 60%', end: 'bottom 60%', scrub: 0.4 },
+        });
+      }
+
+      // Em cada cena, os números da tela se preenchem e o gráfico é traçado.
+      document.querySelectorAll<HTMLElement>('[data-contar]').forEach((el) => {
+        const alvo = Number(el.dataset.contar);
+        const sufixo = el.dataset.sufixo ?? '';
+        const obj = { v: 0 };
+        gsap.to(obj, {
+          v: alvo, duration: 1.2, ease: 'power2.out',
+          scrollTrigger: { trigger: el, start: 'top 80%', once: true },
+          onUpdate: () => { el.textContent = Math.round(obj.v) + sufixo; },
+        });
+      });
+      const traco = document.querySelector<SVGPathElement>('.traco');
+      if (traco) {
+        const comp = traco.getTotalLength();
+        gsap.fromTo(traco, { strokeDasharray: comp, strokeDashoffset: comp }, {
+          strokeDashoffset: 0, duration: 1.4, ease: 'power2.inOut',
+          scrollTrigger: { trigger: traco, start: 'top 85%', once: true },
+        });
+      }
+
+      // A linha das etapas de implantação é desenhada ao chegar nela.
+      gsap.from('.linha-etapas .feito', {
+        scaleX: 0, duration: 1.4, ease: 'power2.inOut',
+        scrollTrigger: { trigger: '.linha-etapas', start: 'top 80%', once: true },
+      });
+    }
+  </script>
+</body>
+</html>
