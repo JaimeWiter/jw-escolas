@@ -57,8 +57,8 @@ p { margin: 0; }
 .topo .container { display: flex; align-items: center; gap: 24px; height: 76px; }
 .marca { display: flex; align-items: center; text-decoration: none; }
 
-.marca-horizontal { display: block; width: 229px; height: 52px; }
-.marca-icone { display: none; width: 48px; height: 48px; }
+.marca-horizontal { display: block; width: 215px; height: 40px; }
+.marca-icone { display: none; width: 44px; height: 44px; }
 .menu { margin-left: auto; display: flex; align-items: center; gap: 28px; font-size: .95rem; }
 .menu a { text-decoration: none; color: var(--suave); }
 .menu a:hover { color: var(--pinho); }
