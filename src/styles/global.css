@@ -282,6 +282,6 @@ p { margin: 0; }
   .relogio a { font-size: .78rem; }
 }
 
-/* Link para o Painel 360 de demonstração */
+/* Links para os painéis de demonstração */
 .link-demo { color: var(--pinho); font-weight: 600; text-decoration: underline; text-decoration-color: var(--acafrao); text-decoration-thickness: 2px; }
 .link-demo:hover { text-decoration-color: var(--pinho); }
