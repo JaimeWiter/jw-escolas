@@ -285,3 +285,34 @@ p { margin: 0; }
 /* Links para os painéis de demonstração */
 .link-demo { color: var(--pinho); font-weight: 600; text-decoration: underline; text-decoration-color: var(--acafrao); text-decoration-thickness: 2px; }
 .link-demo:hover { text-decoration-color: var(--pinho); }
+
+/* Planos: quadro comparativo, sem valores (o valor sai com o diagnóstico). */
+.planos { padding: clamp(72px, 10vw, 128px) 0; }
+.planos h2 { max-width: 16em; }
+.tabela-planos { margin-top: 40px; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.tabela-planos table { width: 100%; min-width: 620px; border-collapse: collapse; font-size: 1rem; }
+.tabela-planos thead th { text-align: left; vertical-align: bottom; padding: 0 16px 18px; width: 19%; }
+.tabela-planos thead th.meio { border-top: 3px solid var(--acafrao); padding-top: 14px; }
+.tabela-planos .nome { display: block; font-family: var(--serif); font-size: 1.5rem; font-weight: 600; color: var(--pinho); }
+.tabela-planos .para { display: block; margin-top: 6px; font-size: .88rem; line-height: 1.4; color: var(--suave); font-weight: 400; }
+.tabela-planos tbody th { text-align: left; font-weight: 400; padding: 14px 16px 14px 0; border-top: 1px solid var(--nevoa-2); line-height: 1.45; }
+.tabela-planos tbody td { padding: 14px 16px; border-top: 1px solid var(--nevoa-2); }
+.tabela-planos tbody td:nth-child(3), .tabela-planos thead th.meio { background: var(--branco); }
+.tabela-planos .sim { display: inline-block; width: 12px; height: 12px; border-radius: 50%; background: var(--pinho); }
+.tabela-planos .nao { color: var(--suave); opacity: .6; }
+.nota-planos { margin-top: 32px; max-width: 40em; }
+@media (max-width: 640px) {
+  .tabela-planos table { min-width: 0; table-layout: fixed; }
+  .tabela-planos thead td { width: 40%; }
+  .tabela-planos thead th { width: 20%; padding: 0 2px 12px; text-align: center; }
+  .tabela-planos thead th.meio { padding-top: 10px; }
+  .tabela-planos .nome { font-size: .86rem; }
+  .tabela-planos .para { display: none; }
+  .tabela-planos tbody th { font-size: .88rem; padding: 12px 8px 12px 0; }
+  .tabela-planos tbody td { padding: 12px 2px; text-align: center; }
+  .tabela-planos .sim { width: 10px; height: 10px; }
+  .planos-para { display: block; }
+}
+.planos-para { display: none; margin: 28px 0 0; padding: 0; list-style: none; font-size: .92rem; color: var(--suave); }
+.planos-para li { padding: 6px 0; }
+.planos-para b { color: var(--pinho); font-weight: 600; }
