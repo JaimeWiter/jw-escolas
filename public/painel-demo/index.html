@@ -260,13 +260,7 @@ Object.defineProperty(window.google, 'script', { get: () => ({ get run() { retur
         eventos) e administrativo.</div>
       <div class="tabela" id="tCustoSeg"></div></div>
     <div class="bloco"><h2>Como o custo é calculado</h2>
-      <p class="nota">A escola não usa centro de custo, então as despesas chegam à série por rateio: professores e
-        estagiários de cada segmento (e 13º, férias e rescisões do pedagógico, na proporção) são divididos pelas salas do
-        segmento; imóvel, água, luz e seguros, pelas salas da escola; material, alimentação, eventos e passeios, por aluno
-        com peso do turno (integral 2, meio período 1); administrativo, encargos, benefícios, bancos e impostos,
-        por aluno. Ficam de fora: atividades extras, diretoria e pró-labore, empréstimos, consignado e ajustes. Salas por
-        série: alunos ÷ capacidade da turma, arredondado para cima (ex.: 32 alunos com turmas de 25 = 2 salas), a confirmar com a escola.
-        É uma estimativa.</p></div>
+      <p class="nota">Quando a escola lança as despesas com centro de custo (por segmento ou por série), cada despesa vai direto para o lugar certo e o cálculo fica mais preciso. O que chega sem centro de custo é dividido entre as séries por uma regra simples. Professores e equipe pedagógica de cada segmento são divididos pelas salas daquele segmento. Prédio, manutenção, água, luz e seguros são divididos por todas as salas da escola. Material, alimentação e eventos são divididos por aluno, com peso maior para o período integral (integral 2, meio período 1). Administrativo, impostos e tarifas bancárias também são divididos por aluno. Atividades extras e a retirada dos sócios ficam de fora, porque não fazem parte do custo de uma vaga. Salas por série: alunos ÷ capacidade da turma, arredondado para cima (ex.: 32 alunos em turmas de 25 = 2 salas). É uma estimativa, e as regras de divisão são ajustadas para cada escola.</p></div>
   </section>
 </main>
 
@@ -541,7 +535,7 @@ function custo() {
   const minimo = fixo / cap + varr / alunos, ocioso = total - (fixo * alunos / cap + varr);
   const j = D.custo[0] || {};
   document.getElementById('notaCusto').textContent = 'Custos de ' + j.janela_inicio + ' a ' + j.janela_fim +
-    ' (12 meses de competência); receita prevista das matrículas do ano letivo. Valores por ' + nomePer + '.';
+    ' (12 meses); receita prevista das matrículas do ano. Valores por ' + nomePer + '.';
   document.getElementById('kpisCusto').innerHTML =
     kpi('Custo por aluno', brl(total / alunos * f), 'média da escola, por ' + nomePer) +
     kpi('Receita por aluno', brl(rec / alunos * f), 'quanto cada aluno paga em média, por ' + nomePer) +
