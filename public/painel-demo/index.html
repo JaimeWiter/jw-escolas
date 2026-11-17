@@ -113,7 +113,7 @@ Object.defineProperty(window.google, 'script', { get: () => ({ get run() { retur
       tempo. Inclui parcelas de anos anteriores.</div>
     <div class="filtro" id="contatosCart" hidden><button class="botao" id="btnContatos">Lista de responsáveis para contato (Google Planilhas)</button>
       <span class="nota" id="msgContatos" style="font-size:12px;color:#6b7280"></span></div>
-    <div class="ajuda" id="ajudaContatos" hidden><b>Lista para contato:</b> busca no iScholar, na hora, quem tem parcela vencida e monta uma planilha só para você, com responsável, telefone, link de WhatsApp, e-mail, aluno, turma, valor e dias de atraso, do maior valor para o menor. Leva até um minuto. São dados pessoais: use só para a cobrança, não encaminhe. A cada clique a lista é atualizada e substitui a anterior (há uma coluna para anotações da cobrança; copie antes de gerar de novo).</div>
+    <div class="ajuda" id="ajudaContatos" hidden><b>Lista para contato:</b> busca no sistema financeiro, na hora, quem tem parcela vencida e monta uma planilha só para você, com responsável, telefone, link de WhatsApp, e-mail, aluno, turma, valor e dias de atraso, do maior valor para o menor. Leva até um minuto. São dados pessoais: use só para a cobrança, não encaminhe. A cada clique a lista é atualizada e substitui a anterior (há uma coluna para anotações da cobrança; copie antes de gerar de novo).</div>
     <div class="kpis" id="kpisCart"></div>
     <div class="bloco"><h2>Saldo vencido por tempo de atraso</h2>
       <div class="ajuda"><b>Como ler:</b> cada barra é o valor em atraso numa faixa de tempo. Dívida com mais de 90 dias é a
@@ -128,7 +128,7 @@ Object.defineProperty(window.google, 'script', { get: () => ({ get run() { retur
   <!-- TURMAS -->
   <section class="aba" id="ocup">
     <div class="ajuda topo"><b>Para que serve:</b> ver quantas vagas estão preenchidas em cada turma e onde ainda há espaço
-      para novas matrículas. A capacidade vem do cadastro das turmas no iScholar (é uma referência média).</div>
+      para novas matrículas. A capacidade vem do cadastro das turmas no sistema financeiro (é uma referência média).</div>
     <div class="filtro">Ano letivo: <select id="anoOcup"></select></div>
     <div class="kpis" id="kpisOcup"></div>
     <div class="bloco"><h2>Ocupação por turma</h2>
@@ -152,7 +152,7 @@ Object.defineProperty(window.google, 'script', { get: () => ({ get run() { retur
   <!-- CONTAS A PAGAR -->
   <section class="aba" id="pagar">
     <div class="ajuda topo"><b>Para que serve:</b> ver o dinheiro que entrou e saiu da escola e para onde ele vai.
-      <b>Vencidas sem baixa</b> são contas com a data vencida e sem pagamento registrado no iScholar; muitas já foram pagas
+      <b>Vencidas sem baixa</b> são contas com a data vencida e sem pagamento registrado no sistema financeiro; muitas já foram pagas
       (por exemplo, tarifas debitadas pelo banco) e só falta registrar o pagamento.</div>
     <div class="filtro">Ano: <select id="anoPagar"></select></div>
     <div class="kpis" id="kpisPagar"></div>
@@ -175,8 +175,8 @@ Object.defineProperty(window.google, 'script', { get: () => ({ get run() { retur
     <div class="ajuda topo"><b>Para que serve:</b> a DRE (Demonstração do Resultado) mostra se a escola teve lucro ou prejuízo.
       Ela compara o que a escola tinha a receber das mensalidades de cada mês com as despesas daquele mês. A despesa entra
       no mês a que se refere (a "competência"), não no dia em que foi paga: a folha de outubro conta em outubro, mesmo
-      paga em novembro. É montada sozinha, todo dia, com os dados do iScholar, e conferida com os relatórios do próprio
-      iScholar (quadro "Conferência", no fim da aba).</div>
+      paga em novembro. É montada sozinha, todo dia, com os dados do sistema financeiro, e conferida com os relatórios do próprio
+      sistema financeiro (quadro "Conferência", no fim da aba).</div>
     <div class="filtro">Até o mês: <select id="mesDre"></select>
       <button class="botao" id="baixarDre">Abrir a DRE no Google Planilhas</button>
       <span class="nota" id="msgDre" style="font-size:12px;color:#6b7280"></span></div>
@@ -197,13 +197,13 @@ Object.defineProperty(window.google, 'script', { get: () => ({ get run() { retur
         <li>As duas últimas linhas, em itálico, não entram na conta: mostram quanto das mensalidades já foi pago e quanto
         ainda está em aberto.</li></ul></div>
       <div class="tabela" id="tDre"></div></div>
-    <div class="bloco"><h2>Conferência com o iScholar</h2>
-      <div class="ajuda"><b>Como ler:</b> todo dia a DRE é comparada com o iScholar, mês a mês.
-        <ul><li><b>Receita</b> × relatório de parcelas do iScholar: deve bater (até 1% de diferença).</li>
-        <li><b>Despesas</b> × "Total de pagamentos" da DRE do iScholar: até 2% de diferença.</li>
-        <li><b>Conferir</b> = a nossa despesa ficou abaixo da do iScholar. Em geral são pagamentos lançados direto no
+    <div class="bloco"><h2>Conferência com o sistema financeiro</h2>
+      <div class="ajuda"><b>Como ler:</b> todo dia a DRE é comparada com o sistema financeiro, mês a mês.
+        <ul><li><b>Receita</b> × relatório de parcelas do sistema financeiro: deve bater (até 1% de diferença).</li>
+        <li><b>Despesas</b> × "Total de pagamentos" da DRE do sistema financeiro: até 2% de diferença.</li>
+        <li><b>Conferir</b> = a nossa despesa ficou abaixo da do sistema financeiro. Em geral são pagamentos lançados direto no
         financeiro, fora do contas a pagar, que esta DRE ainda não enxerga.</li></ul>
-        Por que não usar a DRE do próprio iScholar: lá quase todas as despesas caem em "Despesas diversas", porque o plano
+        Por que não usar a DRE do próprio sistema financeiro: lá quase todas as despesas caem em "Despesas diversas", porque o plano
         de contas da escola não está ligado aos grupos da DRE do sistema. Ela também deixa de fora as parcelas de alunos
         que saíram no meio do ano.</div>
       <div class="tabela" id="tDreValid"></div></div>
@@ -212,22 +212,22 @@ Object.defineProperty(window.google, 'script', { get: () => ({ get run() { retur
   <!-- CONCILIAÇÃO -->
   <section class="aba" id="conc">
     <div class="ajuda topo"><b>Para que serve:</b> conciliar é conferir, um a um, se cada movimento do extrato do banco tem o
-      lançamento correspondente no iScholar, e vice-versa. Com tudo conciliado, o saldo do iScholar é igual ao do banco e
-      os relatórios (inclusive a DRE) são confiáveis. A conciliação é feita no iScholar, em Financeiro → Conciliação;
+      lançamento correspondente no sistema financeiro, e vice-versa. Com tudo conciliado, o saldo do sistema financeiro é igual ao do banco e
+      os relatórios (inclusive a DRE) são confiáveis. A conciliação é feita no sistema financeiro, em Financeiro → Conciliação;
       esta aba só mostra o que falta.</div>
     <div class="kpis" id="kpisConc"></div>
     <div class="bloco"><h2>O que fazer agora</h2><div class="ajuda" id="acoesConc"></div></div>
     <div class="bloco"><h2>Extrato da Caixa Econômica: quanto já está conciliado</h2>
       <div class="ajuda"><b>Como ler:</b> cada barra é o total movimentado no banco no mês. <b>Azul</b> = movimentos já ligados
-        a um lançamento no iScholar; <b>laranja</b> = movimentos do banco ainda sem par. Barra toda azul = mês conciliado.</div>
+        a um lançamento no sistema financeiro; <b>laranja</b> = movimentos do banco ainda sem par. Barra toda azul = mês conciliado.</div>
       <div class="grafico" id="gConc"></div></div>
     <div class="bloco"><h2>Movimentos do extrato por mês</h2>
       <div class="ajuda"><b>Como ler:</b> entradas e saídas do extrato do banco, separadas.
-        <b>Pendentes</b> = movimentos do banco ainda sem lançamento ligado no iScholar.
+        <b>Pendentes</b> = movimentos do banco ainda sem lançamento ligado no sistema financeiro.
         <b>Com diferença</b> = movimentos conciliados em que o valor do banco não bate com a soma dos lançamentos ligados;
         nas entradas, em geral é a tarifa do boleto descontada pelo banco.</div>
       <div class="tabela" id="tConcExt"></div></div>
-    <div class="bloco"><h2>Lançamentos do iScholar sem par no banco</h2>
+    <div class="bloco"><h2>Lançamentos do sistema financeiro sem par no banco</h2>
       <div class="ajuda"><b>Como ler:</b> o outro lado da conferência.
         <b>Sem par</b> = lançamentos de datas que o extrato já cobre, mas que não foram ligados a nenhum movimento do banco.
         <b>Aguardando extrato</b> = lançamentos de datas depois do último extrato importado: só dá para conciliar depois de
@@ -338,8 +338,8 @@ function carteira() {
 function contatos() {
   const msg = document.getElementById('msgContatos'), btn = document.getElementById('btnContatos');
   const jan = window.open('', '_blank');
-  if (jan) jan.document.write('<p style="font-family:Arial;margin:40px">Buscando no iScholar... pode levar até um minuto.</p>');
-  btn.disabled = true; msg.textContent = 'Buscando no iScholar...';
+  if (jan) jan.document.write('<p style="font-family:Arial;margin:40px">Buscando no sistema financeiro... pode levar até um minuto.</p>');
+  btn.disabled = true; msg.textContent = 'Buscando no sistema financeiro...';
   google.script.run.withSuccessHandler(r => {
     btn.disabled = false;
     const resumo = int(r.responsaveis) + ' responsáveis, ' + brl(r.total) + ' em aberto com juros e multa' +
@@ -390,7 +390,7 @@ function pagar() {
   const ent = soma(fx, 'entradas'), sai = soma(fx, 'saidas');
   document.getElementById('kpisPagar').innerHTML =
     kpi('Entradas no ano', brl(ent), 'parcelas recebidas') + kpi('Saídas no ano', brl(sai), 'contas pagas') +
-    kpi('Saldo', brl(ent - sai), 'entradas − saídas') + kpi('Vencidas sem baixa', brl(venc), 'sem pagamento registrado no iScholar; em geral tarifas já debitadas') +
+    kpi('Saldo', brl(ent - sai), 'entradas − saídas') + kpi('Vencidas sem baixa', brl(venc), 'sem pagamento registrado no sistema financeiro; em geral tarifas já debitadas') +
     kpi('A pagar', brl(aberto - venc), 'em aberto, ainda no prazo');
   const t = new google.visualization.DataTable();
   t.addColumn('string', 'Mês'); t.addColumn('number', 'Entradas'); t.addColumn('number', 'Saídas'); t.addColumn('number', 'Saldo');
@@ -454,7 +454,7 @@ function dre() {
   const v = D.dreValid || [];
   const st = (ok, dif) => ok === 'true' ? '<span class="ok">OK</span>' : `<span class="conferir">Conferir</span>`;
   document.getElementById('tDreValid').innerHTML = tabela(
-    ['Mês', 'Receita (DRE)', 'Receita (iScholar, parcelas)', 'Diferença', '', 'Despesas (DRE)', 'Despesas (DRE do iScholar)', 'Diferença', ''],
+    ['Mês', 'Receita (DRE)', 'Receita (sistema financeiro, parcelas)', 'Diferença', '', 'Despesas (DRE)', 'Despesas (DRE do sistema financeiro)', 'Diferença', ''],
     v.map(r => [nomeMes(r.mes), brl(r.receita), brl(r.receita_ischolar), pct(+r.dif_receita), st(r.ok_receita),
       brl(r.despesa), brl(r.despesa_ischolar), pct(+r.dif_despesa), st(r.ok_despesa)]));
 }
@@ -491,7 +491,7 @@ function conciliacao() {
   const dif = ext.filter(r => r.sentido === 'Entrada'), nDif = soma(dif, 'com_diferenca'), vDif = soma(dif, 'diferenca');
   document.getElementById('kpisConc').innerHTML =
     kpi('Extrato importado até', dataBr(ult), dias !== null ? 'há ' + dias + ' dias' : '') +
-    kpi('Movimentos do banco sem par', int(pend), brl(vPend) + ' sem lançamento ligado no iScholar') +
+    kpi('Movimentos do banco sem par', int(pend), brl(vPend) + ' sem lançamento ligado no sistema financeiro') +
     kpi('Lançamentos sem par no banco', int(semPar), brl(vSemPar) + ' em datas que o extrato já cobre') +
     kpi('Aguardando extrato', int(agu), brl(vAgu) + ' lançados depois de ' + dataBr(ult)) +
     kpi('Entradas com diferença', int(nDif), brl(vDif) + ' entre banco e lançamentos ligados');
@@ -500,7 +500,7 @@ function conciliacao() {
   const atrasados = meses.filter(m => soma(ext.filter(r => r.mes === m), 'pendentes') > 5);
   const acoes = [];
   const seguinte = ult ? (d => (d.setDate(d.getDate() + 1), d.toISOString().slice(0, 10)))(new Date(ult + 'T12:00:00')) : '';
-  if (dias !== null && dias > 7) acoes.push(`<li>Importar no iScholar o extrato da Caixa Econômica a partir de ${dataBr(seguinte)}
+  if (dias !== null && dias > 7) acoes.push(`<li>Importar no sistema financeiro o extrato da Caixa Econômica a partir de ${dataBr(seguinte)}
     (Financeiro → Conciliação → importar extrato). Sem isso, ${int(agu)} lançamentos não têm com o que ser conferidos.</li>`);
   atrasados.forEach(m => { const x = ext.filter(r => r.mes === m);
     acoes.push(`<li>Terminar a conciliação de <b>${nomeMes(m)}</b>: ${int(soma(x, 'pendentes'))} movimentos do banco
@@ -594,7 +594,7 @@ function iniciar(json) {
   document.getElementById('carregando').remove();
   document.getElementById('fin').hidden = false;
   const ref = D.financeiro.length ? D.financeiro[0].ref : '';
-  if (ref) document.getElementById('ref').textContent = 'Dados do iScholar atualizados em ' + dataBr(ref);
+  if (ref) document.getElementById('ref').textContent = 'Dados do sistema financeiro atualizados em ' + dataBr(ref);
   const anoAtual = String(new Date().getFullYear());
   opts(document.getElementById('anoFin'), [...new Set(D.financeiro.map(r => r.mes.slice(0, 4)))], anoAtual);
   opts(document.getElementById('anoOcup'), [...new Set(D.ocupacao.map(r => r.ano_letivo))].filter(Boolean), anoAtual);
