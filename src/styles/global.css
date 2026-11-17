@@ -221,6 +221,16 @@ p { margin: 0; }
 .fechamento .botao.secundario:hover { border-color: var(--nevoa); }
 .contato-texto { margin-top: 28px; font-size: .95rem; color: var(--suave-escuro); }
 
+/* Fotos: duotone pinho/névoa, sem animação */
+.foto-faixa { margin: clamp(48px, 7vw, 80px) 0 0; }
+.foto-faixa img { display: block; width: 100%; height: auto; aspect-ratio: 2400 / 1050; object-fit: cover; background: var(--nevoa-2); }
+.credito { font-size: .75rem; color: var(--suave); margin-top: 8px; text-align: right; }
+.fechamento .container { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 380px); column-gap: clamp(40px, 7vw, 96px); align-items: end; }
+.fechamento .container > :not(.foto-fechamento) { grid-column: 1; }
+.foto-fechamento { grid-column: 2; grid-row: 1 / span 4; margin: 0; align-self: end; }
+.foto-fechamento img { display: block; width: 100%; height: auto; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 4px; }
+.foto-fechamento .credito { color: var(--suave-escuro); opacity: .8; }
+
 .rodape { background: var(--pinho-3); color: var(--suave-escuro); font-size: .85rem; padding: 28px 0 calc(28px + env(safe-area-inset-bottom, 0px)); }
 .rodape .container { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
 .rodape a { color: var(--suave-escuro); }
@@ -252,6 +262,12 @@ p { margin: 0; }
   .fluxo-estreito .motor span { color: var(--salvia); font-size: .88rem; }
   .fluxo-estreito .motor::after { content: ""; position: absolute; left: 50%; top: 100%; width: 2px; height: 34px; background: var(--pinho); }
   .fluxo-estreito .casa + .grupo { margin-top: 22px; }
+}
+@media (max-width: 900px) {
+  .fechamento .container { grid-template-columns: minmax(0, 1fr); }
+  .foto-fechamento { grid-column: 1; grid-row: auto; margin-top: 48px; }
+  .foto-fechamento img { aspect-ratio: 4 / 3; object-position: 50% 60%; }
+  .foto-faixa img { aspect-ratio: 4 / 3; object-position: 62% 50%; }
 }
 @media (max-width: 520px) {
   .numeros { gap: 10px; }

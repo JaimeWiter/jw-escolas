@@ -78,6 +78,13 @@ const marcos = [
           </ol>
         </nav>
       </div>
+      <figure class="foto-faixa">
+        <picture>
+          <source type="image/webp" srcset={`${base}fotos/sala-manha-1200.webp 1200w, ${base}fotos/sala-manha-2400.webp 2400w`} sizes="100vw">
+          <img src={`${base}fotos/sala-manha-1200.jpg`} srcset={`${base}fotos/sala-manha-1200.jpg 1200w, ${base}fotos/sala-manha-2400.jpg 2400w`} sizes="100vw" width="2400" height="1050" loading="lazy" decoding="async" alt="Sala de aula vazia, com carteiras de madeira e o sol da manhã entrando pelas janelas">
+        </picture>
+        <figcaption class="container credito">Foto de 2y.kang, Unsplash</figcaption>
+      </figure>
     </section>
 
     <section class="dia" id="um-dia" aria-labelledby="dia-titulo">
@@ -318,6 +325,13 @@ const marcos = [
           <a class="botao secundario" href={`mailto:${email}?subject=Diagn%C3%B3stico%20para%20escola`}>Enviar um e-mail</a>
         </div>
         <p class="contato-texto">{email}<br>Praia Grande/SP, com atendimento em todo o Brasil</p>
+        <figure class="foto-fechamento">
+          <picture>
+            <source type="image/webp" srcset={`${base}fotos/sala-luz-640.webp 640w, ${base}fotos/sala-luz-960.webp 960w`} sizes="(min-width: 901px) 380px, 100vw">
+            <img src={`${base}fotos/sala-luz-640.jpg`} srcset={`${base}fotos/sala-luz-640.jpg 640w, ${base}fotos/sala-luz-960.jpg 960w`} sizes="(min-width: 901px) 380px, 100vw" width="960" height="1200" loading="lazy" decoding="async" alt="Luz da tarde entrando pela janela de uma sala de aula vazia">
+          </picture>
+          <figcaption class="credito">Foto de UThan Zaw, Unsplash</figcaption>
+        </figure>
       </div>
     </section>
   </main>
