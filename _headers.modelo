@@ -1,0 +1,11 @@
+# Cabecalhos de seguranca aplicados pelo Cloudflare a todo o site.
+# Escolhidos para proteger sem quebrar nada: nao restringem scripts (o painel usa Google Charts),
+# mas bloqueiam embutir o site em paginas falsas, adivinhacao de tipo e vazamento de endereco.
+/*
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(), browsing-topics=()
+  Cross-Origin-Opener-Policy: same-origin
+  Content-Security-Policy: frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
+  Strict-Transport-Security: max-age=31536000; includeSubDomains

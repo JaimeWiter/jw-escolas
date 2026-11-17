@@ -8,4 +8,5 @@ rm -rf publicar && mkdir -p publicar/escolas
 cp -r dist/. publicar/escolas/
 # Enquanto não existe a página da empresa, a raiz leva para /escolas/.
 printf '/  /escolas/  302\n/escolas  /escolas/  301\n' > publicar/_redirects
+cp _headers.modelo publicar/_headers
 npx wrangler deploy
