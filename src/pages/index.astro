@@ -7,7 +7,7 @@ import '../styles/global.css';
 const whatsapp = 'https://wa.me/5513978187272?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Expediente%20e%20quero%20conversar%20sobre%20a%20minha%20escola.';
 const email = 'contato@expedientegestao.com.br';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
-const site = 'https://jwdataconsulting.com.br' + base;
+const site = 'https://expedientegestao.com.br' + base;
 
 // Régua do dia: 7h a 17h ocupa 72% da linha (proporcional ao relógio); o resto é o mês, pontilhado.
 const hora = (h: number) => `${(((h - 7) / 10) * 72).toFixed(1)}%`;
@@ -35,6 +35,7 @@ const marcos = [
   <meta property="og:locale" content="pt_BR">
   <meta property="og:title" content="Expediente para escolas">
   <meta property="og:description" content="Da primeira conversa ao fechamento do mês: atendimento, financeiro, RH e resultado de escolas particulares, sobre o sistema que a escola já usa.">
+  <link rel="canonical" href={site}>
   <meta property="og:url" content={site}>
   <meta property="og:image" content={`${site}og.png`}>
   <meta property="og:image:width" content="1200">
@@ -104,6 +105,7 @@ const marcos = [
               <p class="hora"><span class="relogio-num">7h</span><span class="contexto">antes do portão abrir</span></p>
               <h3>A direção já sabe como a escola está.</h3>
               <p class="texto">Um painel com captação, caixa e resultado, atualizado sozinho durante a madrugada a partir do sistema de gestão. Cada gráfico diz em uma frase como ler.</p>
+              <p class="texto"><a class="link-demo" href={`${base}painel-demo/`} target="_blank" rel="noopener">Abrir o Painel 360 de demonstração</a>, com dados de uma escola fictícia.</p>
             </div>
             <div class="lado-tela">
               <div class="janela">

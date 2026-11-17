@@ -1,0 +1,12 @@
+// Site estático da Expediente no Cloudflare (sem servidor): só publica a pasta "publicar/",
+// montada pelo publicar.sh (site em /escolas e _redirects na raiz).
+{
+	"$schema": "https://unpkg.com/wrangler@4.164.0/config-schema.json",
+	"name": "expediente",
+	"compatibility_date": "2026-11-16",
+	"assets": { "directory": "./publicar", "not_found_handling": "404-page" },
+	"routes": [
+		{ "pattern": "expedientegestao.com.br", "custom_domain": true },
+		{ "pattern": "www.expedientegestao.com.br", "custom_domain": true }
+	]
+}
