@@ -6,7 +6,18 @@ import '../styles/global.css';
 
 const whatsapp = 'https://wa.me/5513978187272?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20JW%20e%20quero%20conversar%20sobre%20a%20minha%20escola.';
 const email = 'datajwconsulting@gmail.com';
-const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round"/><path d="M48 32 L58 72 L68 46 L78 72 L88 32" fill="none" stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/><path d="M18 96 H90" stroke="#9CC3B4" stroke-width="4" stroke-linecap="round"/><circle cx="30" cy="96" r="5" fill="#9CC3B4"/><circle cx="68" cy="96" r="5" fill="#9CC3B4"/><circle cx="100" cy="96" r="8" fill="#E9A23B"/>`;
+const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
+const site = 'https://jwdataconsulting.com.br' + base;
+
+// Régua do dia: 7h a 17h ocupa 72% da linha (proporcional ao relógio); o resto é o mês, pontilhado.
+const hora = (h: number) => `${(((h - 7) / 10) * 72).toFixed(1)}%`;
+const marcos = [
+  { id: 'c-7h', rotulo: '7h', pos: hora(7) },
+  { id: 'c-9h20', rotulo: '9h20', pos: hora(9 + 20 / 60) },
+  { id: 'c-14h', rotulo: '14h', pos: hora(14) },
+  { id: 'c-16h30', rotulo: '16h30', pos: hora(16.5) },
+  { id: 'c-fim', rotulo: 'Fim do mês', pos: '100%', fim: true },
+];
 ---
 <!doctype html>
 <html lang="pt-BR">
@@ -17,14 +28,26 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
   <meta name="description" content="Atendimento por WhatsApp, financeiro, RH e DRE da escola particular organizados e automatizados, sobre o sistema de gestão que a escola já usa. Para escolas de 100 a 1.000 alunos.">
   <meta name="robots" content="noindex, nofollow">
   <meta name="theme-color" content="#F1F5F3">
-  <link rel="icon" href={`${import.meta.env.BASE_URL}/favicon.svg`.replace("//", "/")} type="image/svg+xml">
+  <link rel="icon" href={`${base}favicon.svg`} type="image/svg+xml">
+  <link rel="icon" href={`${base}favicon-32.png`} sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href={`${base}apple-touch-icon.png`}>
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:title" content="JW Data Consulting para escolas">
+  <meta property="og:description" content="Da primeira conversa ao fechamento do mês: atendimento, financeiro, RH e resultado de escolas particulares, sobre o sistema que a escola já usa.">
+  <meta property="og:url" content={site}>
+  <meta property="og:image" content={`${site}og.png`}>
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="JW Data Consulting. Da primeira conversa ao fechamento do mês.">
+  <meta name="twitter:card" content="summary_large_image">
 </head>
 <body>
   <header class="topo" id="topo">
     <div class="container">
-      <a class="marca" href="#inicio" aria-label="JW Data Consulting, início">
-        <svg viewBox="0 0 120 120" aria-hidden="true" style="color:#123F3C" set:html={icone} />
-        <span>JW Data Consulting</span>
+      <a class="marca" href="#inicio">
+        <img class="marca-horizontal" src={`${base}marca/jw-horizontal.svg`} width="229" height="52" alt="JW Data Consulting, início">
+        <img class="marca-icone" src={`${base}marca/jw-icone.svg`} width="48" height="48" alt="JW Data Consulting, início">
       </a>
       <nav class="menu" aria-label="Principal">
         <a href="#um-dia">Como funciona</a>
@@ -44,16 +67,16 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
           <a class="botao principal" href="#contato">Agendar um diagnóstico</a>
           <a class="botao secundario" href="#um-dia">Ver um dia na escola</a>
         </div>
-        <div class="linha-h trilho-abertura" aria-hidden="true">
-          <div class="base"></div><div class="feito"></div>
+        <nav class="relogio trilho-abertura" aria-label="Momentos do dia na escola">
+          <div class="base"></div><div class="feito"></div><div class="resto"></div>
           <ol>
-            <li><span class="no"></span><span>7h</span></li>
-            <li><span class="no"></span><span>9h20</span></li>
-            <li><span class="no"></span><span>14h</span></li>
-            <li><span class="no"></span><span>16h30</span></li>
-            <li class="fim"><span class="no"></span><span>Fim do mês</span></li>
+            {marcos.map((m) => (
+              <li class={m.fim ? 'fim' : undefined} style={`--pos:${m.pos}`}>
+                <a href={`#${m.id}`}><span class="no"></span><span class="rotulo">{m.rotulo}</span></a>
+              </li>
+            ))}
           </ol>
-        </div>
+        </nav>
       </div>
     </section>
 
@@ -67,10 +90,10 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
         <div class="cenas">
           <div class="espinha" aria-hidden="true"><div class="progresso"></div></div>
 
-          <article class="cena">
+          <article class="cena" id="c-7h">
             <span class="no" aria-hidden="true"></span>
             <div class="lado-texto">
-              <p class="hora">7h, antes do portão abrir</p>
+              <p class="hora"><span class="relogio-num">7h</span><span class="contexto">antes do portão abrir</span></p>
               <h3>A direção já sabe como a escola está.</h3>
               <p class="texto">Um painel com captação, caixa e resultado, atualizado sozinho durante a madrugada a partir do sistema de gestão. Cada gráfico diz em uma frase como ler.</p>
             </div>
@@ -95,10 +118,10 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
             </div>
           </article>
 
-          <article class="cena">
+          <article class="cena" id="c-9h20">
             <span class="no" aria-hidden="true"></span>
             <div class="lado-texto">
-              <p class="hora">9h20, uma família chama no WhatsApp</p>
+              <p class="hora"><span class="relogio-num">9h20</span><span class="contexto">uma família chama no WhatsApp</span></p>
               <h3>Ninguém fica sem resposta, e a visita já sai marcada.</h3>
               <p class="texto">O número da escola continua o mesmo, agora numa caixa de atendimento que a equipe divide, com a API oficial da Meta. Na véspera da visita, a família recebe um lembrete; depois dela, o material da série certa.</p>
             </div>
@@ -116,10 +139,10 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
             </div>
           </article>
 
-          <article class="cena">
+          <article class="cena" id="c-14h">
             <span class="no" aria-hidden="true"></span>
             <div class="lado-texto">
-              <p class="hora">14h, o financeiro abre a fila do dia</p>
+              <p class="hora"><span class="relogio-num">14h</span><span class="contexto">o financeiro abre a fila do dia</span></p>
               <h3>Só o que precisa de alguém. O resto já foi feito.</h3>
               <p class="texto">Lembretes de vencimento e avisos de atraso saem sozinhos, com o tom que a gestão aprovou. O analista começa a tarde por uma lista curta, e não pela caça ao que falta.</p>
             </div>
@@ -140,10 +163,10 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
             </div>
           </article>
 
-          <article class="cena">
+          <article class="cena" id="c-16h30">
             <span class="no" aria-hidden="true"></span>
             <div class="lado-texto">
-              <p class="hora">16h30, chega um currículo</p>
+              <p class="hora"><span class="relogio-num">16h30</span><span class="contexto">chega um currículo</span></p>
               <h3>O RH já sabe se ele combina com a vaga.</h3>
               <p class="texto">O candidato envia pela página Trabalhe conosco, dentro do Google da própria escola. A leitura com IA tira nome e contatos antes de analisar, e o resumo chega ao RH às 8h do dia seguinte. Quem decide é sempre uma pessoa.</p>
             </div>
@@ -163,10 +186,10 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
             </div>
           </article>
 
-          <article class="cena">
+          <article class="cena chegada" id="c-fim">
             <span class="no" aria-hidden="true"></span>
             <div class="lado-texto">
-              <p class="hora">Último dia útil do mês</p>
+              <p class="hora"><span class="relogio-num">Fim do mês</span><span class="contexto">último dia útil</span></p>
               <h3>A DRE já está pronta, e confere com o banco.</h3>
               <p class="texto">Receitas, despesas e resultado por competência, montados a partir do plano de contas da escola e conferidos com o sistema de gestão e o extrato. A conciliação mostra só as exceções. A direção revisa e aprova.</p>
             </div>
@@ -233,13 +256,36 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
           <div class="etapa"><p class="quando">em seguida</p><h3>Resultado</h3><p class="texto">DRE gerencial, conciliação bancária e custo por série.</p></div>
           <div class="etapa"><p class="quando">por fim</p><h3>RH e painel completo</h3><p class="texto">Triagem de currículos e a visão da escola inteira num só lugar.</p></div>
         </div>
-        <p class="texto" style="margin-top:48px">Toda etapa começa ouvindo a equipe e termina com treinamento e um passo a passo de telas e cliques. Hoje integramos com o iScholar; outros sistemas de gestão sob consulta.</p>
+        <p class="texto" style="margin-top:48px">Toda etapa começa ouvindo a equipe e termina com treinamento e um passo a passo de telas e cliques.</p>
+
+        <div class="sistemas">
+          <h3>Funciona com o sistema de gestão que a escola já usa.</h3>
+          <ul class="lista">
+            <li><b>Integração direta,</b> quando o sistema oferece API. Já em uso com o iScholar.</li>
+            <li><b>Com liberação do fornecedor,</b> quando o acesso precisa ser pedido pela escola ao sistema.</li>
+            <li><b>Por relatório exportado e extrato do banco,</b> quando o sistema não tem integração.</li>
+          </ul>
+        </div>
       </div>
     </section>
 
     <section class="principios" aria-labelledby="princ-titulo">
       <div class="container">
         <h2 id="princ-titulo">Os dados e as contas continuam da escola.</h2>
+        <figure class="fluxo">
+          <p class="so-leitor">Diagrama: o WhatsApp oficial, o sistema de gestão (só leitura), o extrato do banco e a página Trabalhe conosco, todos no nome da escola, alimentam as rotinas da JW, que rodam na nuvem da escola. Delas saem o painel das 7h, a fila do financeiro, o resumo do RH às 8h e a DRE do mês, entregues à equipe e à direção.</p>
+          <svg class="fluxo-largo" viewBox="0 0 1000 400" aria-hidden="true" focusable="false"><rect class="casa" x="1" y="1" width="652" height="398" rx="28"/><text class="grupo" x="28" y="44">No nome da escola</text><text class="grupo" x="760" y="44">Para a equipe e a direção</text><path class="via" d="M286 93 C340 93 340 210 392 210"/><rect class="cap" x="24" y="70" width="262" height="46" rx="23"/><text x="46" y="98">WhatsApp oficial</text><path class="via" d="M286 171 C340 171 340 210 392 210"/><rect class="cap" x="24" y="148" width="262" height="46" rx="23"/><text x="46" y="176">Sistema de gestão, só leitura</text><path class="via" d="M286 249 C340 249 340 210 392 210"/><rect class="cap" x="24" y="226" width="262" height="46" rx="23"/><text x="46" y="254">Extrato do banco</text><path class="via" d="M286 327 C340 327 340 210 392 210"/><rect class="cap" x="24" y="304" width="262" height="46" rx="23"/><text x="46" y="332">Página Trabalhe conosco</text><path class="via" d="M612 210 C690 210 690 93 760 93"/><rect class="cap" x="760" y="70" width="220" height="46" rx="23"/><text x="782" y="98">Painel das 7h</text><path class="via" d="M612 210 C690 210 690 171 760 171"/><rect class="cap" x="760" y="148" width="220" height="46" rx="23"/><text x="782" y="176">Fila do financeiro</text><path class="via" d="M612 210 C690 210 690 249 760 249"/><rect class="cap" x="760" y="226" width="220" height="46" rx="23"/><text x="782" y="254">Resumo do RH às 8h</text><path class="via" d="M612 210 C690 210 690 327 760 327"/><rect class="cap chegada" x="760" y="304" width="220" height="46" rx="23"/><text x="782" y="332">DRE do mês</text><rect class="motor" x="392" y="160" width="220" height="100" rx="18"/><text class="motor-t" x="414" y="204">Rotinas da JW</text><text class="motor-s" x="414" y="232">na nuvem da escola</text></svg>
+          <div class="fluxo-estreito" aria-hidden="true">
+            <div class="casa">
+              <p class="grupo">No nome da escola</p>
+              <ul class="caps"><li>WhatsApp oficial</li><li>Sistema de gestão, só leitura</li><li>Extrato do banco</li><li>Página Trabalhe conosco</li></ul>
+              <div class="motor"><b>Rotinas da JW</b><span>na nuvem da escola</span></div>
+            </div>
+            <p class="grupo">Para a equipe e a direção</p>
+            <ul class="caps"><li>Painel das 7h</li><li>Fila do financeiro</li><li>Resumo do RH às 8h</li><li class="chegada">DRE do mês</li></ul>
+          </div>
+          <figcaption class="legenda">Por onde passam os dados. A JW trabalha dentro das contas da escola.</figcaption>
+        </figure>
         <ul class="lista">
           <li><b>WhatsApp, Google e nuvem ficam no nome da escola.</b> A JW acessa com autorização e sai quando a escola quiser.</li>
           <li><b>A JW atua como operadora de dados,</b> com termo assinado e só o acesso necessário, como pede a LGPD.</li>
@@ -313,7 +359,8 @@ const icone = `<path d="M30 28 V62 Q30 76 18 76" fill="none" stroke="currentColo
         const tl = gsap.timeline({ defaults: { ease: 'power3.out' } });
         tl.from(split.lines, { yPercent: 105, duration: 0.9, stagger: 0.09 })
           .from('.trilho-abertura .feito', { scaleX: 0, duration: 1.4, ease: 'power2.inOut' }, '-=0.3')
-          .from('.trilho-abertura .no', { scale: 0, duration: 0.35, stagger: 0.22 }, '<0.1');
+          .from('.trilho-abertura .no', { scale: 0, duration: 0.35, stagger: 0.22 }, '<0.1')
+          .from('.trilho-abertura .resto', { opacity: 0, duration: 0.6 }, '-=0.2');
       });
 
       // A espinha do dia acompanha a rolagem.

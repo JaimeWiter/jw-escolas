@@ -22,7 +22,8 @@
 }
 
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-padding-top: 88px; }
+html { -webkit-text-size-adjust: 100%; scroll-padding-top: 96px; }
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
 body { margin: 0; background: var(--nevoa); color: var(--tinta); font: 18px/1.6 var(--sans); text-rendering: optimizeLegibility; }
 img, svg { display: block; max-width: 100%; }
 a { color: inherit; text-underline-offset: 4px; }
@@ -36,7 +37,9 @@ p { margin: 0; }
 
 .container { width: 100%; max-width: var(--largura); margin: 0 auto; padding-left: var(--gutter); padding-right: max(20px, env(safe-area-inset-right, 0px)); }
 .texto { color: var(--suave); font-size: clamp(1.05rem, 1.4vw, 1.2rem); line-height: 1.65; max-width: 38em; }
-.hora { font-family: var(--serif); font-style: italic; font-size: clamp(1.25rem, 2vw, 1.6rem); color: var(--acafrao-tinta); }
+.hora { display: grid; gap: 2px; }
+.hora .relogio-num { font-family: var(--serif); font-weight: 400; font-size: clamp(3rem, 6vw, 4.75rem); line-height: .95; letter-spacing: -0.02em; color: var(--pinho); font-variant-numeric: lining-nums; }
+.hora .contexto { font-family: var(--serif); font-style: italic; font-size: clamp(1.15rem, 1.8vw, 1.4rem); color: var(--acafrao-tinta); }
 .legenda { font-size: .82rem; color: var(--suave); margin-top: 12px; }
 
 /* Botões */
@@ -52,8 +55,10 @@ p { margin: 0; }
 .topo { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: rgba(241, 245, 243, .9); backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px); border-bottom: 1px solid transparent; transition: border-color .3s; }
 .topo.rolou { border-bottom-color: rgba(18, 63, 60, .12); }
 .topo .container { display: flex; align-items: center; gap: 24px; height: 76px; }
-.marca { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--pinho); font-family: var(--serif); font-weight: 600; font-size: 1.2rem; }
-.marca svg { width: 40px; height: 40px; }
+.marca { display: flex; align-items: center; text-decoration: none; }
+
+.marca-horizontal { display: block; width: 229px; height: 52px; }
+.marca-icone { display: none; width: 48px; height: 48px; }
 .menu { margin-left: auto; display: flex; align-items: center; gap: 28px; font-size: .95rem; }
 .menu a { text-decoration: none; color: var(--suave); }
 .menu a:hover { color: var(--pinho); }
@@ -66,7 +71,24 @@ p { margin: 0; }
 .abertura .acoes { margin-top: 12px; }
 .trilho-abertura { margin-top: clamp(40px, 7vw, 72px); }
 
-/* Linha horizontal (abertura e implantação) */
+/* Régua do dia na abertura: proporcional ao relógio (7h a 17h); o resto do mês é pontilhado. */
+.relogio { position: relative; height: 64px; --dia: 72%; }
+.relogio .base, .relogio .feito, .relogio .resto { position: absolute; top: 9px; height: 2px; }
+.relogio .base { left: 0; width: var(--dia); background: rgba(18, 63, 60, .2); }
+.relogio .feito { left: 0; width: var(--dia); background: var(--pinho); transform-origin: left; }
+.relogio .resto { left: var(--dia); right: 10px; height: 0; border-top: 2px dotted rgba(18, 63, 60, .45); }
+.relogio ol { list-style: none; margin: 0; padding: 0; position: absolute; inset: 0; }
+.relogio li { position: absolute; top: 0; left: var(--pos); transform: translateX(-50%); }
+.relogio li:first-child { transform: none; }
+.relogio li.fim { left: auto; right: 0; transform: none; }
+.relogio a { display: flex; flex-direction: column; align-items: center; gap: 10px; text-decoration: none; color: var(--suave); font-size: .9rem; white-space: nowrap; border-radius: 6px; }
+.relogio li:first-child a { align-items: flex-start; }
+.relogio li.fim a { align-items: flex-end; }
+.relogio .no { width: 20px; height: 20px; border-radius: 50%; background: var(--nevoa); border: 2px solid var(--pinho); }
+.relogio li.fim .no { background: var(--acafrao); border-color: var(--acafrao); }
+.relogio a:hover .rotulo { color: var(--pinho); text-decoration: underline; }
+
+/* Linha horizontal (implantação) */
 .linha-h { position: relative; height: 56px; }
 .linha-h .base { position: absolute; left: 0; right: 0; top: 9px; height: 2px; background: rgba(18, 63, 60, .2); }
 .linha-h .feito { position: absolute; left: 0; top: 9px; height: 2px; width: 100%; background: var(--pinho); transform-origin: left; }
@@ -86,7 +108,12 @@ p { margin: 0; }
 .cena { position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); gap: clamp(32px, 5vw, 72px); align-items: start; }
 .cena .lado-texto { padding-top: 2px; }
 .cena .no { position: absolute; left: -64px; top: 8px; width: 20px; height: 20px; border-radius: 50%; background: var(--branco); border: 2px solid var(--pinho); transition: background-color .4s, border-color .4s, transform .4s; }
-.cena.ativa .no { background: var(--acafrao); border-color: var(--acafrao); transform: scale(1.25); }
+.cena .no { top: 18px; }
+.cena.ativa .no { background: var(--pinho); transform: scale(1.25); }
+.cena.chegada .no { background: var(--acafrao); border-color: var(--acafrao); }
+@media (min-width: 901px) {
+  .cena .lado-texto { position: sticky; top: 120px; }
+}
 .cena .lado-texto { display: grid; gap: 16px; align-content: start; }
 .cena .lado-tela { min-width: 0; }
 
@@ -145,6 +172,28 @@ p { margin: 0; }
 .etapa p.quando { font-family: var(--serif); font-style: italic; color: var(--acafrao-tinta); }
 .etapa h3 { font-size: 1.5rem; }
 
+/* Sistemas de gestão */
+.sistemas { display: grid; grid-template-columns: minmax(0, .9fr) minmax(0, 1.1fr); gap: clamp(24px, 5vw, 72px); margin-top: clamp(56px, 8vw, 88px); padding-top: 32px; border-top: 2px solid var(--pinho); }
+.sistemas h3 { font-size: clamp(1.5rem, 2.6vw, 2.1rem); max-width: 14em; }
+.sistemas .lista li:first-child { border-top: 0; padding-top: 4px; }
+.sistemas b { font-weight: 600; color: var(--pinho); }
+
+/* Diagrama de fluxo (mesmo estilo do FigJam: etapas em cápsulas, curvas, açafrão só na chegada) */
+.fluxo { margin: 40px 0 8px; }
+.fluxo .legenda { color: var(--pinho-3); opacity: .8; }
+.fluxo-largo { width: 100%; height: auto; font-family: var(--sans); }
+.fluxo-largo .casa { fill: rgba(241, 245, 243, .28); stroke: var(--pinho-3); stroke-opacity: .5; stroke-width: 1.5; stroke-dasharray: 1 7; stroke-linecap: round; }
+.fluxo-largo .grupo { font-family: var(--serif); font-style: italic; font-size: 20px; fill: var(--pinho-3); }
+.fluxo-largo .via { fill: none; stroke: var(--pinho); stroke-width: 1.75; }
+.fluxo-largo .cap { fill: var(--nevoa); stroke: var(--pinho); stroke-width: 1.5; }
+.fluxo-largo .cap.chegada { fill: var(--acafrao); stroke: var(--acafrao); }
+.fluxo-largo text { font-size: 15px; fill: var(--tinta); }
+.fluxo-largo .motor { fill: var(--pinho); }
+.fluxo-largo .motor-t { font-family: var(--serif); font-weight: 600; font-size: 23px; fill: var(--nevoa); }
+.fluxo-largo .motor-s { font-size: 14px; fill: var(--salvia); }
+.fluxo-estreito { display: none; }
+.so-leitor { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+
 /* Princípios */
 .principios { background: var(--salvia); color: var(--pinho-3); padding: clamp(72px, 10vw, 128px) 0; }
 .principios h2 { color: var(--pinho-3); max-width: 14em; }
@@ -184,12 +233,33 @@ p { margin: 0; }
   .cena .no { left: -40px; }
   .espinha { left: 9px; }
   .colunas, .quem .container { grid-template-columns: minmax(0, 1fr); }
-  .etapas { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); row-gap: 36px; }
+  .etapas { grid-template-columns: minmax(0, 1fr); row-gap: 36px; position: relative; padding-left: 40px; }
   .etapas .linha-h { display: none; }
+  .etapa:not(:last-child)::after { content: ""; position: absolute; left: -31px; top: 16px; bottom: -46px; width: 2px; background: var(--pinho); }
+  .etapa { position: relative; }
+  .etapa::before { content: ""; position: absolute; z-index: 1; left: -40px; top: 6px; width: 20px; height: 20px; border-radius: 50%; background: var(--branco); border: 2px solid var(--pinho); }
+  .etapa:last-child::before { background: var(--acafrao); border-color: var(--acafrao); }
+  .sistemas { grid-template-columns: minmax(0, 1fr); }
+  .fluxo-largo { display: none; }
+  .fluxo-estreito { display: grid; gap: 14px; }
+  .fluxo-estreito .casa { border: 1.5px dashed rgba(12, 48, 46, .4); border-radius: 22px; padding: 18px 16px 16px; display: grid; gap: 14px; background: rgba(241, 245, 243, .28); }
+  .fluxo-estreito .grupo { font-family: var(--serif); font-style: italic; font-size: 1.1rem; color: var(--pinho-3); }
+  .fluxo-estreito .caps { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; }
+  .fluxo-estreito .caps li { background: var(--nevoa); border: 1.5px solid var(--pinho); border-radius: 999px; padding: 6px 14px; font-size: .9rem; }
+  .fluxo-estreito .caps li.chegada { background: var(--acafrao); border-color: var(--acafrao); }
+  .fluxo-estreito .motor { position: relative; background: var(--pinho); color: var(--nevoa); border-radius: 14px; padding: 14px 16px; display: grid; }
+  .fluxo-estreito .motor b { font-family: var(--serif); font-weight: 600; font-size: 1.25rem; }
+  .fluxo-estreito .motor span { color: var(--salvia); font-size: .88rem; }
+  .fluxo-estreito .motor::after { content: ""; position: absolute; left: 50%; top: 100%; width: 2px; height: 34px; background: var(--pinho); }
+  .fluxo-estreito .casa + .grupo { margin-top: 22px; }
 }
 @media (max-width: 520px) {
-  .numeros { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }
+  .numeros { gap: 10px; }
+  .numeros b { font-size: 1.6rem; }
   .etapas { grid-template-columns: minmax(0, 1fr); }
   .linha-h li span { font-size: .72rem; }
-  .marca span { display: none; }
+  .marca-horizontal { display: none; }
+  .marca-icone { display: block; }
+  .menu .botao { min-height: 42px; padding: 0 16px; font-size: .92rem; }
+  .relogio a { font-size: .78rem; }
 }
