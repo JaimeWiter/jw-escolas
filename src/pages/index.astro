@@ -4,7 +4,7 @@ import '@fontsource-variable/newsreader/wght-italic.css';
 import '@fontsource-variable/public-sans';
 import '../styles/global.css';
 
-const whatsapp = 'https://wa.me/5513978187272?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Expediente%20e%20quero%20conversar%20sobre%20a%20minha%20escola.';
+const whatsapp = 'https://wa.me/5513991352944?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Expediente%20e%20quero%20conversar%20sobre%20a%20minha%20escola.';
 const email = 'contato@expedientegestao.com.br';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 const site = 'https://expedientegestao.com.br' + base;
@@ -54,7 +54,6 @@ const marcos = [
         <a href="#um-dia">Como funciona</a>
         <a href="#implantacao">Implantação</a>
         <a href="#planos">Planos</a>
-        <a href="#quem-faz">Quem faz</a>
         <a class="botao principal" href="#contato">Agendar diagnóstico</a>
       </nav>
     </div>
@@ -106,7 +105,19 @@ const marcos = [
               <p class="hora"><span class="relogio-num">7h</span><span class="contexto">antes do portão abrir</span></p>
               <h3>A direção já sabe como a escola está.</h3>
               <p class="texto">Um painel com captação, caixa e resultado, atualizado sozinho durante a madrugada a partir do sistema de gestão. Cada gráfico diz em uma frase como ler.</p>
-              <p class="texto">Veja com dados de uma escola fictícia: o <a class="link-demo" href={`${base}painel-classico/`} target="_blank" rel="noopener">Painel clássico</a>, com financeiro, turmas, atendimento, RH e custos, e o <a class="link-demo" href={`${base}insights/`} target="_blank" rel="noopener">Radar de Gestão</a>, que aponta sozinho o que pede atenção.</p>
+              <div class="demos">
+                <p class="demos-titulo">Veja funcionando, com dados de uma escola fictícia:</p>
+                <div class="demos-opcoes">
+                  <div class="demo">
+                    <a class="botao principal" href={`${base}painel-classico/`} target="_blank" rel="noopener">Painel clássico<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="so-leitor"> (abre em nova aba)</span></a>
+                    <p>Financeiro, turmas, atendimento, RH e custos.</p>
+                  </div>
+                  <div class="demo">
+                    <a class="botao secundario" href={`${base}insights/`} target="_blank" rel="noopener">Radar de Gestão<svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 13 13 7M8 7h5v5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="so-leitor"> (abre em nova aba)</span></a>
+                    <p>Aponta sozinho o que pede atenção.</p>
+                  </div>
+                </div>
+              </div>
             </div>
             <div class="lado-tela">
               <div class="janela">
@@ -339,21 +350,6 @@ const marcos = [
       </div>
     </section>
 
-    <section class="quem" id="quem-faz" aria-labelledby="quem-titulo">
-      <div class="container">
-        <div>
-          <h2 id="quem-titulo">Quem já dirigiu escola, ao lado de quem organiza grandes operações.</h2>
-          <p class="texto"><b>Kayque Pinto</b>, sócio fundador, já esteve do outro lado da mesa. Por três anos dirigiu uma escola de idiomas franqueada do Grupo Pearson, cuidando da captação de alunos, da equipe, das famílias e do caixa. Depois, na LES Fotografia Escolar e na KING Educacional, negociou parcerias com mantenedores, diretores e coordenadores e trabalhou em projetos de inclusão, aprendizagem e orientação às famílias. É quem conversa com a sua escola, do diagnóstico em diante.</p>
-          <p class="texto"><b>Jaime Witer</b>, também sócio fundador, soma cerca de 10 anos entre negócios, tecnologia e dados. Ele traz o método que aplicou em operações de grande porte para a rotina de uma escola.</p>
-          <p class="trajetoria">Trajetória em iFood, Mercado Livre, Via Varejo, Natura, O Boticário, Bradesco, Santander, Banco do Brasil, Serasa Experian, Unimed Nacional e Mycon Consórcios.</p>
-        </div>
-        <ul class="lista provas">
-          <li><b>−86%</b><span>de auditorias médicas manuais com uma esteira que pontua cada caso, na Unimed Nacional</span></li>
-          <li><b>−60%</b><span>de custo já no primeiro mês num ambiente de dados para mais de 850 usuários, na Natura</span></li>
-        </ul>
-      </div>
-    </section>
-
     <section class="fechamento" id="contato" aria-labelledby="contato-titulo">
       <div class="container">
         <h2 id="contato-titulo">Duas semanas para mostrar onde está o tempo da sua equipe.</h2>
@@ -377,7 +373,7 @@ const marcos = [
   <footer class="rodape">
     <div class="container">
       <span class="assinatura">Mais resultado no mesmo expediente.</span>
-      <span>© 2026 Expediente. Jaime Witer, CNPJ 69.783.687/0001-85</span>
+      <span>© 2026 Expediente. CNPJ 69.783.687/0001-85</span>
       <span><a href="https://jwdataconsulting.com.br/privacidade.html">Privacidade</a>&nbsp;&nbsp;<a href="https://jwdataconsulting.com.br/termos.html">Termos</a></span>
     </div>
   </footer>
