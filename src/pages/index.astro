@@ -1,4 +1,4 @@
----
+﻿---
 import '@fontsource-variable/newsreader';
 import '@fontsource-variable/newsreader/wght-italic.css';
 import '@fontsource-variable/public-sans';
@@ -233,6 +233,29 @@ const marcos = [
               <p class="legenda">Tela ilustrativa, com dados fictícios.</p>
             </div>
           </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="videos" id="videos" aria-labelledby="videos-titulo">
+      <div class="container">
+        <div class="videos-intro">
+          <h2 id="videos-titulo">Em menos de um minuto<span class="ponto" aria-hidden="true"></span></h2>
+          <p class="texto">O mesmo dia, em vídeo curto, e o Radar de Gestão funcionando com uma escola fictícia.</p>
+        </div>
+        <div class="videos-lista">
+          <figure class="video">
+            <video controls playsinline preload="none" poster={`${base}marca/redes/reel-01-capa-v2.jpg`} width="1080" height="1920" aria-label="Vídeo: um dia na escola com a Expediente, das 7h ao fim do mês">
+              <source src={`${base}marca/redes/reel-01-um-dia-na-escola-v2.mp4`} type="video/mp4">
+            </video>
+            <figcaption><b>Um dia na escola</b><span>21 segundos</span></figcaption>
+          </figure>
+          <figure class="video">
+            <video controls playsinline preload="none" poster={`${base}marca/redes/reel-02-capa-v2.jpg`} width="1080" height="1920" aria-label="Vídeo: o Radar de Gestão com alertas, indicadores, funil de captação e doze meses de resultado, com dados fictícios">
+              <source src={`${base}marca/redes/reel-02-radar-de-gestao-v2.mp4`} type="video/mp4">
+            </video>
+            <figcaption><b>Radar de Gestão</b><span>29 segundos, dados fictícios</span></figcaption>
+          </figure>
         </div>
       </div>
     </section>
