@@ -6,6 +6,8 @@ import '../styles/global.css';
 
 const whatsapp = 'https://wa.me/5513991352944?text=Ol%C3%A1%2C%20vim%20pelo%20site%20da%20Expediente%20e%20quero%20conversar%20sobre%20a%20minha%20escola.';
 const email = 'contato@expedientegestao.com.br';
+const instagram = 'https://www.instagram.com/expedientegestao/';
+const facebook = 'https://www.facebook.com/1476150895579037';
 const base = import.meta.env.BASE_URL.replace(/\/$/, '') + '/';
 const site = 'https://expedientegestao.com.br' + base;
 
@@ -382,6 +384,7 @@ const marcos = [
           <a class="botao secundario" href={`mailto:${email}?subject=Diagn%C3%B3stico%20para%20escola`}>Enviar um e-mail</a>
         </div>
         <p class="contato-texto">{email}<br>Praia Grande/SP, com atendimento em todo o Brasil</p>
+        <p class="redes">Acompanhe: <a href={instagram} rel="noopener">Instagram</a> · <a href={facebook} rel="noopener">Facebook</a></p>
         <figure class="foto-fechamento">
           <picture>
             <source type="image/webp" srcset={`${base}fotos/sala-luz-640.webp 640w, ${base}fotos/sala-luz-960.webp 960w`} sizes="(min-width: 901px) 380px, 100vw">
@@ -397,7 +400,7 @@ const marcos = [
     <div class="container">
       <span class="assinatura">Mais resultado no mesmo expediente.</span>
       <span>© 2026 Expediente. CNPJ 69.783.687/0001-85</span>
-      <span><a href="https://jwdataconsulting.com.br/privacidade.html">Privacidade</a>&nbsp;&nbsp;<a href="https://jwdataconsulting.com.br/termos.html">Termos</a></span>
+      <span><a href={instagram} rel="noopener">Instagram</a>&nbsp;&nbsp;<a href={facebook} rel="noopener">Facebook</a>&nbsp;&nbsp;<a href="https://jwdataconsulting.com.br/privacidade.html">Privacidade</a>&nbsp;&nbsp;<a href="https://jwdataconsulting.com.br/termos.html">Termos</a></span>
     </div>
   </footer>
 
