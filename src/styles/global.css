@@ -179,6 +179,31 @@ p { margin: 0; }
 .colunas .depois li { font-weight: 600; color: var(--pinho); }
 
 /* Implantação */
+/* Resultados (case real, sem nome) */
+.prova { padding: clamp(72px, 10vw, 128px) 0; background: var(--pinho); color: var(--nevoa); }
+.prova h2 { color: var(--nevoa); max-width: 15em; margin-top: 8px; }
+.prova .chapeu { margin: 0; font-family: var(--serif); font-style: italic; font-size: 1.25rem; color: var(--salvia); }
+.prova .texto { color: var(--suave-escuro); margin-top: 16px; }
+.destaques { list-style: none; margin: 48px 0 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(24px, 4vw, 48px); }
+.destaques li { border-top: 2px solid var(--salvia); padding-top: 20px; display: grid; gap: 10px; align-content: start; }
+.destaques b { font-family: var(--serif); font-weight: 500; font-size: clamp(2.6rem, 5vw, 3.8rem); line-height: 1; color: var(--acafrao); }
+.destaques span { color: var(--nevoa); font-size: 1.05rem; line-height: 1.55; }
+.comparacao { margin-top: 64px; border-top: 1px solid rgba(241, 245, 243, .2); }
+.comparacao .linha { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 56px); padding: 18px 0; border-bottom: 1px solid rgba(241, 245, 243, .14); }
+.comparacao .linha span:first-child { color: var(--suave-escuro); }
+.comparacao .linha span:last-child { color: var(--nevoa); font-weight: 500; }
+.comparacao .cabeca span { font-family: var(--serif); font-style: italic; font-weight: 400 !important; font-size: 1.2rem; color: var(--salvia) !important; }
+.pesquisa { margin-top: 56px; display: grid; grid-template-columns: 1fr 1fr; gap: clamp(24px, 4vw, 56px); }
+.pesquisa p { margin: 0; color: var(--suave-escuro); line-height: 1.65; }
+.pesquisa b { color: var(--nevoa); font-weight: 600; }
+@media (max-width: 760px) {
+  .destaques, .pesquisa { grid-template-columns: minmax(0, 1fr); }
+  .comparacao .linha { grid-template-columns: minmax(0, 1fr); gap: 6px; }
+  .comparacao .cabeca { display: none; }
+  .comparacao .linha span:first-child::before { content: "Antes: "; font-style: italic; }
+  .comparacao .linha span:last-child::before { content: "Depois: "; font-style: italic; color: var(--acafrao); font-weight: 400; }
+}
+
 .implantacao { padding: clamp(72px, 10vw, 128px) 0; background: var(--branco); border-top: 1px solid var(--nevoa-2); }
 .implantacao h2 { max-width: 15em; }
 .etapas { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 32px; margin-top: 56px; }
