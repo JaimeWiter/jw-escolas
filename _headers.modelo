@@ -9,3 +9,7 @@
   Cross-Origin-Opener-Policy: same-origin
   Content-Security-Policy: frame-ancestors 'self'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests
   Strict-Transport-Security: max-age=31536000; includeSubDomains
+
+# Clinicas: acesso direto, fora dos buscadores.
+/clinicas/*
+  X-Robots-Tag: noindex, nofollow

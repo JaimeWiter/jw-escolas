@@ -15,8 +15,20 @@ RADAR="../../DashboardsInreact"
 (cd "$RADAR" && npm run build)
 mkdir -p publicar/escolas/insights
 cp -r "$RADAR/out/." publicar/escolas/insights/
+# Clínicas (pasta Expediente-clinicas): acesso direto, fora do Google (noindex no HTML e no _headers),
+# sem links a partir de /escolas. Site em /clinicas e os dois painéis de demonstração.
+CLIN="../../Expediente-clinicas"
+(cd "$CLIN/site" && npx astro build)
+mkdir -p publicar/clinicas
+cp -r "$CLIN/site/dist/." publicar/clinicas/
+(cd "$CLIN/paineis/classico" && npm run build)
+mkdir -p publicar/clinicas/painel-classico
+cp -r "$CLIN/paineis/classico/dist/." publicar/clinicas/painel-classico/
+(cd "$CLIN/paineis/radar" && npm run build)
+mkdir -p publicar/clinicas/radar
+cp -r "$CLIN/paineis/radar/dist/." publicar/clinicas/radar/
 # Enquanto não existe a página da empresa, a raiz leva para /escolas/.
-printf '/  /escolas/  302\n/escolas  /escolas/  301\n' > publicar/_redirects
+printf '/  /escolas/  302\n/escolas  /escolas/  301\n/clinicas  /clinicas/  301\n' > publicar/_redirects
 # Endereços antigos dos painéis (17/11) levam para os novos.
 printf '/escolas/painel-360/*  /escolas/insights/  301\n/escolas/painel-demo/*  /escolas/painel-classico/  301\n' >> publicar/_redirects
 cp _headers.modelo publicar/_headers
