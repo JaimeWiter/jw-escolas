@@ -167,6 +167,14 @@ p { margin: 0; }
 .video figcaption { display: grid; gap: 2px; margin-top: 12px; font-size: .88rem; color: var(--suave); }
 .video figcaption b { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--pinho); }
 @media (max-width: 900px) { .videos .container { grid-template-columns: minmax(0, 1fr); } }
+/* Vídeo principal (16:9) em largura total; os dois reels ficam abaixo */
+.videos .container { grid-template-columns: minmax(0, 1fr); align-items: start; }
+.videos h2 { max-width: none; }
+.videos-intro .texto { max-width: 40em; }
+.video-principal { margin: 0; }
+.video-principal video { display: block; width: 100%; height: auto; aspect-ratio: 16 / 9; border-radius: 18px; background: var(--pinho); box-shadow: 0 0 0 1px var(--nevoa-2), 0 30px 60px -36px rgba(12, 48, 46, .5); }
+.video-principal figcaption { display: flex; gap: 10px; align-items: baseline; flex-wrap: wrap; margin-top: 12px; font-size: .88rem; color: var(--suave); }
+.video-principal figcaption b { font-family: var(--serif); font-size: 1.15rem; font-weight: 600; color: var(--pinho); }
 @media (max-width: 520px) { .videos-lista { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; } }
 
 .mudanca { padding: clamp(72px, 10vw, 128px) 0; }

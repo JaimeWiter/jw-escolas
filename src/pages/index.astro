@@ -241,9 +241,15 @@ const marcos = [
     <section class="videos" id="videos" aria-labelledby="videos-titulo">
       <div class="container">
         <div class="videos-intro">
-          <h2 id="videos-titulo">Em menos de um minuto<span class="ponto" aria-hidden="true"></span></h2>
-          <p class="texto">O mesmo dia, em vídeo curto, e o Radar de Gestão funcionando com uma escola fictícia.</p>
+          <h2 id="videos-titulo">Veja em vídeo<span class="ponto" aria-hidden="true"></span></h2>
+          <p class="texto">Do atendimento ao RH em pouco mais de um minuto, com os painéis de uma escola fictícia. Logo abaixo, dois vídeos curtos: um dia na escola e o Radar de Gestão.</p>
         </div>
+        <figure class="video-principal">
+          <video controls playsinline preload="none" poster={`${base}video/expediente-escolas-capa.jpg`} width="1920" height="1080" aria-label="Vídeo: atendimento, cobrança, conciliação, Radar de Gestão, DRE e RH de uma escola fictícia com a Expediente">
+            <source src={`${base}video/expediente-escolas.mp4`} type="video/mp4">
+          </video>
+          <figcaption><b>A Expediente na escola</b><span>1min22, dados fictícios</span></figcaption>
+        </figure>
         <div class="videos-lista">
           <figure class="video">
             <video controls playsinline preload="none" poster={`${base}marca/redes/reel-01-capa-v2.jpg`} width="1080" height="1920" aria-label="Vídeo: um dia na escola com a Expediente, das 7h ao fim do mês">
