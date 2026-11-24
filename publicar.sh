@@ -32,4 +32,5 @@ printf '/  /escolas/  302\n/escolas  /escolas/  301\n/clinicas  /clinicas/  301\
 # Endereços antigos dos painéis (17/11) levam para os novos.
 printf '/escolas/painel-360/*  /escolas/insights/  301\n/escolas/painel-demo/*  /escolas/painel-classico/  301\n' >> publicar/_redirects
 cp _headers.modelo publicar/_headers
+find publicar -iname desktop.ini -delete  # arquivos ocultos do Windows travam o wrangler
 npx wrangler deploy
